@@ -1,0 +1,163 @@
+/*******  GaZoobie 10.5
+************************************/
+* {
+    box-sizing: border-box;
+}
+.container {
+    max-width: 1240px;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: row wrap;
+    height: 100%;
+    gap: 8px 1%;
+    padding: 0 8px;
+    justify-content: space-between;
+}
+.columns, .column {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: flex-start;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-flow: row wrap;
+}
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: stretch;
+    flex-flow: row wrap;
+}
+.container ul, .container ol {
+    margin-left: 2%;
+    margin-right: 10px;
+}
+.container.centerstack {
+    flex-flow: column;
+    align-items: center;
+}
+.container.stackleft {
+    flex-flow: column;
+    align-items: start;
+}
+.columns.flex-rows-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.columns.flex-rows-start {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+.container .columns .container, .columns .columns {
+    padding: 0;
+    margin: 0;
+}
+.rows {
+    flex-basis: 100%;
+    padding: 5px;
+}
+.one {
+    flex-basis: 7.33%;
+}
+.two {
+    flex-basis: 15.66%;
+}
+.three, .qrt {
+    flex-basis: 24%;
+}
+.four, .one-third {
+    flex-basis: 32.33%;
+}
+.five {
+    flex-basis: 40.66%;
+}
+.six {
+    flex-basis: 48%;
+}
+.seven {
+    flex-basis: 57.33%;
+}
+.eight {
+    flex-basis: 65.66%;
+}
+.nine {
+    flex-basis: 74%;
+}
+.ten {
+    flex-basis: 82.33%;
+}
+.eleven {
+    flex-basis: 90.66%;
+    ;
+}
+.twelve {
+    flex-basis: 100%;
+}
+.span {
+    flex: 1;
+}
+/* Form Flex */
+.form-row {
+    margin: 12px 0;
+    flex-direction: column;
+}
+/* Container align */
+.center-column {
+    margin: 0 auto;
+}
+.stretch-columns {
+    align-items: stretch;
+}
+.center-hrz {
+    align-items: center;
+    align-content: center;
+}
+.center-vrt {
+    align-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+/* Column align */
+.center-text {
+    text-align: center;
+}
+/* Flex Table */
+@media all and (max-width: 768px) {
+    .container .one.columns, .container .two.columns, .container .three.columns, .container .four.columns, .container .five.columns, .container .six.columns, .container .seven.columns, .container .eight.columns, .container .nine.columns, .container .ten.columns {
+        flex-basis: 100%;
+    }
+    .container .columns .container, .columns .columns {
+        padding: 0;
+        margin: 0;
+    }
+    .qrt {
+        flex-basis: 50%;
+        flex-flow: wrap;
+    }
+    /* Mobile Specialty Classes */
+    .mobileDouble {
+        flex-basis: 49% !important;
+        flex-flow: wrap;
+    }
+    .mobileTriple {
+        flex-basis: 32.333% !important;
+        flex-flow: wrap;
+    }
+    .mobileclear, .mobilebreak {
+        clear: both;
+        display: block;
+        overflow: hidden;
+    }
+    .mobilehide {
+        display: none !important;
+        visibility: hidden !important;
+    }
+    .mobileshow {
+        display: inherit !important;
+        visibility: visible !important;
+    }
+}
