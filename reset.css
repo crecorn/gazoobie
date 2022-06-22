@@ -1,0 +1,122 @@
+/* Gazoobie Reset 2 */
+/* Box sizing rules */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+/* Remove default padding */
+ul, ol {
+    padding: 0;
+    display: block;
+    margin: 0px 15px 15px 5%;
+}
+/* Remove default margin */
+body, h1, h2, h3, h4, p, ul[class], ol[class], li, figure, figcaption, blockquote, dl, dd {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+h1, h2, h3, h4, p, em {
+    margin: 0 0 8px 0;
+    font-weight: normal;
+}
+h1 {
+    font-size: 2rem;
+    line-height: 2rem;
+    margin-top: 8px;
+}
+h2, h3 {
+    line-height: 2rem;
+    margin-top: 10px;
+}
+p {
+    font-size: .9875rem;
+    line-height: 1.75;
+}
+a, a:visited, a:active {
+    color: #004989;
+}
+a:hover {
+    text-decoration: none;
+}
+em {
+    font-size: .8rem;
+    display: block;
+}
+/* Set core body defaults */
+body {
+    min-height: 100vh;
+    scroll-behavior: smooth;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+}
+/* Remove list styles on ul, ol elements with a class attribute */
+ul[class], ol[class] {
+    list-style: none;
+    margin: 15px 0;
+}
+li {
+    list-style: disc outside;
+    margin: 0 0 5px 10px;
+}
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+    color: inherit;
+}
+/* Make images easier to work with */
+img {
+    max-width: 100%;
+    display: block;
+    margin: auto;
+}
+/* Natural flow and rhythm in articles by default */
+article > * + * {
+    margin-top: 1em;
+}
+/* Inherit fonts for inputs and buttons */
+input, button, textarea, select {
+    font: inherit;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #bcbcbc;
+}
+input, select {
+    vertical-align: middle;
+}
+input[type="number"], input[type="text"], input[type="password"], input[type="email"], input[type="date"], textarea, select {
+    width: 100%;
+}
+/* Submits and buttons */
+input[type="submit"], button, btn {
+    color: #fff !important;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #c70300;
+    padding: 20px;
+    border-radius: 5px;
+    display: inline-block;
+    border: none;
+    transition: all 0.4s ease 0s;
+}
+input[type="submit"]:hover, button:hover, btn:hover {
+    background: #434343;
+    letter-spacing: 1px;
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+    box-shadow: 5px 40px -10px rgba(0, 0, 0, 0.57);
+    transition: all 0.4s ease 0s;
+}
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+@media only screen and (max-width: 768px) {
+    figure {
+        width: 100% !important;
+        float: none !important;
+    }
+}
