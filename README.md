@@ -30,11 +30,11 @@ Containers can be nested.
 
 ## Container
 
-.fullwidth
-.justifyleft
-.justifyright
+- .fullwidth Expands the width of the container
+- .justifyleft All columns left
+- .justifyright All columns right
 
 ## Column
 
-.centerhrz
-.centervrt
+- .centerhrz Content centered on the horizontal center
+- .centervrt Content centered on the vertical center
