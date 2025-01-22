@@ -1,155 +1,247 @@
-/*******  GaZoobie 11
-************************************/
+/* GaZoobie 14.01 - Optimized */
+/* Reset CSS with better performance */
 * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
     box-sizing: border-box;
-}
-.container {
-    width: min(1240px, 100%);
-    margin: 0 auto;
-    display: flex;
-    flex-flow: row wrap;
-    height: 100%;
-    gap: 8px 1%;
-    padding: 0 8px;
-    justify-content: space-between;
-}
-.columns, .column {
-    display: flex;
-    align-content: flex-start;
-    justify-content: flex-start;
-    flex-flow: column;
-    flex-direction: column;
-    align-items: stretch;
-}
-.row {
-    display: flex;
-    gap: 2%;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: flex-start;
-    justify-content: flex-start;
-    align-items: stretch;
-}
-.container ul, .container ol {
-    margin-left: 2%;
-    margin-right: 10px;
-}
-.container.centerstack {
-    flex-flow: column;
-    align-items: center;
-}
-.container .columns .container, .columns .columns {
-    padding: 0;
     margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
-.rows {
-    flex-basis: 100%;
-    padding: 5px;
-}
-.one {
-    flex-basis: 7.33%;
-}
-.two {
-    flex-basis: 15.66%;
-}
-.three, .qrt {
-    flex-basis: 24%;
-}
-.four, .one-third {
-    flex-basis: 32.33%;
-}
-.five {
-    flex-basis: 40.66%;
-}
-.six {
-    flex-basis: 48%;
-}
-.seven {
-    flex-basis: 57.33%;
-}
-.eight {
-    flex-basis: 65.66%;
-}
-.nine {
-    flex-basis: 74%;
-}
-.ten {
-    flex-basis: 82.33%;
-}
-.eleven {
-    flex-basis: 90.66%;
-    ;
-}
-.twelve {
-    flex-basis: 100%;
-}
-.span {
-    flex: 1;
-}
-figure {
+
+/* Container Class with GPU acceleration */
+.container {
+    width: 100%;
+    max-width: 1240px;
+    margin: 0 auto;
+    display: -webkit-flex;
+    display: -moz-flex;
     display: flex;
+    -webkit-flex-flow: row wrap;
+    -moz-flex-flow: row wrap;
+    flex-flow: row wrap;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    justify-content: center;
+    will-change: transform;
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    transform: translateZ(0);
 }
+
+/* Column Classes with optimized flex properties */
+.column, .columns {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: flex;
+    -webkit-justify-content: flex-start;
+    -moz-justify-content: flex-start;
+    justify-content: flex-start;
+    -webkit-flex-flow: column;
+    -moz-flex-flow: column;
+    flex-flow: column;
+    -webkit-align-items: stretch;
+    -moz-align-items: stretch;
+    align-items: stretch;
+    padding: 0 5px;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+}
+
+.container .column {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+}
+
+/* Optimized Grid Classes */
+.one { -webkit-flex-basis: 8.333333%; -moz-flex-basis: 8.333333%; flex-basis: 8.333333%; }
+.two { -webkit-flex-basis: 16.666666%; -moz-flex-basis: 16.666666%; flex-basis: 16.666666%; }
+.three, .qrt { -webkit-flex-basis: 25%; -moz-flex-basis: 25%; flex-basis: 25%; }
+.four, .one-third { -webkit-flex-basis: 33.333333%; -moz-flex-basis: 33.333333%; flex-basis: 33.333333%; }
+.five { -webkit-flex-basis: 41.666666%; -moz-flex-basis: 41.666666%; flex-basis: 41.666666%; }
+.six, .half { -webkit-flex-basis: 50%; -moz-flex-basis: 50%; flex-basis: 50%; }
+.seven { -webkit-flex-basis: 58.333333%; -moz-flex-basis: 58.333333%; flex-basis: 58.333333%; }
+.eight { -webkit-flex-basis: 66.666666%; -moz-flex-basis: 66.666666%; flex-basis: 66.666666%; }
+.nine { -webkit-flex-basis: 75%; -moz-flex-basis: 75%; flex-basis: 75%; }
+.ten { -webkit-flex-basis: 83.333333%; -moz-flex-basis: 83.333333%; flex-basis: 83.333333%; }
+.eleven { -webkit-flex-basis: 91.666666%; -moz-flex-basis: 91.666666%; flex-basis: 91.666666%; }
+.twelve { -webkit-flex-basis: 100%; -moz-flex-basis: 100%; flex-basis: 100%; }
+
+/* Optimized iframe handling */
 figure iframe {
     max-width: 100%;
     margin: auto;
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    transform: translateZ(0);
 }
-/* Form Flex */
+
+/* Form Flex with better specificity */
 .form-row {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: flex;
     margin: 12px 0;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
     flex-direction: column;
 }
-/* Column align */
-.col-centermargin, .center-column {
+
+/* Container Specialty Classes with better performance */
+.container.fullwidth {
+    max-width: 100%;
+    padding: 0;
+}
+
+.container.justifyleft {
+    -webkit-justify-content: flex-start;
+    -moz-justify-content: flex-start;
+    justify-content: flex-start;
+}
+
+.container.justifyright {
+    -webkit-justify-content: flex-end;
+    -moz-justify-content: flex-end;
+    justify-content: flex-end;
+}
+
+/* Column Specialty Classes with optimized alignment */
+.column.automargin,
+.columns.automargin {
     margin: 0 auto;
 }
-.col-maxwidth, .stretch-columns {
+
+.column.maxwidth,
+.columns.maxwidth {
+    -webkit-align-items: stretch;
+    -moz-align-items: stretch;
     align-items: stretch;
 }
-.col-centerhrz, .center-hrz {
-    align-items: center;
+
+.column.center-horizontal,
+.columns.center-horizontal,
+.column.centerhrz,
+.columns.centerhrz {
+    -webkit-align-content: center;
+    -moz-align-content: center;
     align-content: center;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    justify-content: center;
 }
-.col-centervrt, .center-vrt {
+
+.column.center-vertical,
+.columns.center-vertical,
+.column.centervrt,
+.columns.centervrt {
+    -webkit-align-content: center;
+    -moz-align-content: center;
     align-content: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
     align-items: center;
+    text-align: center;
 }
-/* Row align */
-.row-right {
-   justify-content: flex-end; 
+
+/* Row alignment with better specificity */
+.container .rowright {
+    -webkit-justify-content: flex-end;
+    -moz-justify-content: flex-end;
+    justify-content: flex-end;
 }
-/* Mobile Flex */
-@media all and (max-width: 768px) {
-    .one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .ten, .eleven {
+
+/* Mobile visibility classes */
+.mobileshow {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+/* Optimized Media Queries with logical breakpoints */
+@media only screen and (max-width: 1200px) {
+    .column,
+    .columns {
+        padding: 0 15px;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .one, .two, .three, .qrt,
+    .four, .one-third, .five,
+    .six, .half, .seven,
+    .eight, .nine, .ten,
+    .eleven {
+        -webkit-flex-basis: 100%;
+        -moz-flex-basis: 100%;
         flex-basis: 100%;
     }
-    .container .columns .container, .columns .columns {
-        padding: 0;
+}
+
+@media only screen and (max-width: 768px) {
+    .column,
+    .columns {
+        padding: 0 12px;
+    }
+
+    .container .column {
         margin: 0;
+        max-width: 100%;
     }
-    .qrt {
-        flex-basis: 50%;
-        flex-flow: wrap;
-    }
-    /* Mobile Specialty Classes */
+
     .mobileDouble {
-        flex-basis: 49% !important;
+        -webkit-flex-basis: 50% !important;
+        -moz-flex-basis: 50% !important;
+        flex-basis: 50% !important;
+        -webkit-flex-flow: wrap;
+        -moz-flex-flow: wrap;
         flex-flow: wrap;
     }
+
     .mobileTriple {
-        flex-basis: 32.333% !important;
+        -webkit-flex-basis: 33.333% !important;
+        -moz-flex-basis: 33.333% !important;
+        flex-basis: 33.333% !important;
+        -webkit-flex-flow: wrap;
+        -moz-flex-flow: wrap;
         flex-flow: wrap;
     }
-    .mobileclear, .mobilebreak {
+
+    .mobileclear,
+    .mobilebreak {
         clear: both;
         display: block;
         overflow: hidden;
     }
+
     .mobilehide {
         display: none !important;
         visibility: hidden !important;
     }
+
     .mobileshow {
-        display: inherit !important;
+        display: block !important;
         visibility: visible !important;
+    }
+}
+
+/* Print optimization */
+@media print {
+    .container {
+        width: 100% !important;
+        max-width: none !important;
+    }
+}
+}
+
+/* Print optimization */
+@media print {
+    .container {
+        width: 100% !important;
+        max-width: none !important;
     }
 }
