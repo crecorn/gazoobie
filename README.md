@@ -1,4 +1,4 @@
-# gazoobie
+# Gazoobie
 
 A flex base responsive CSS framework.
 
