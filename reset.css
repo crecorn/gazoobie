@@ -1,122 +1,264 @@
-/* Gazoobie Reset 2 */
-/* Box sizing rules */
+/* Gazoobie Reset 2.21 - Improved */
+
+/* ================================
+   1. Box Sizing
+   ================================ */
 *, *::before, *::after {
     box-sizing: border-box;
 }
-/* Remove default padding */
-ul, ol {
-    padding: 0;
-    display: block;
-    margin: 0px 15px 15px 5%;
-}
-/* Remove default margin */
-body, h1, h2, h3, h4, p, ul[class], ol[class], li, figure, figcaption, blockquote, dl, dd {
+
+/* ================================
+   2. Remove Default Margins and Padding
+   ================================ */
+body, h1, h2, h3, h4, p, figure, figcaption, blockquote, dl, dd, ul, ol, li, input, button, textarea, select {
     margin: 0;
-    font-family: 'Roboto', sans-serif;
+    padding: 0;
 }
-h1, h2, h3, h4, p, em {
-    margin: 0 0 8px 0;
-    font-weight: normal;
-}
-h1 {
-    font-size: 2rem;
-    line-height: 2rem;
-    margin-top: 8px;
-}
-h2, h3 {
-    line-height: 2rem;
-    margin-top: 10px;
-}
-p {
-    font-size: .9875rem;
-    line-height: 1.75;
-}
-a, a:visited, a:active {
-    color: #004989;
-}
-a:hover {
-    text-decoration: none;
-}
-em {
-    font-size: .8rem;
-    display: block;
-}
-/* Set core body defaults */
+
+/* ================================
+   3. Set Core Body Defaults
+   ================================ */
 body {
     min-height: 100vh;
     scroll-behavior: smooth;
     text-rendering: optimizeSpeed;
     line-height: 1.5;
+    font-family: sans-serif;
+    font-size: 16px; /* Base font size for rem calculations */
 }
-/* Remove list styles on ul, ol elements with a class attribute */
+
+/* ================================
+   4. Typography
+   ================================ */
+h1, h2, h3, h4, p, em {
+    font-weight: normal;
+    line-height: 1.5;
+    margin-bottom: 0.5em;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-top: 0.5em;
+}
+
+h2, h3 {
+    margin-top: 0.625em; /* Approximately 10px if base is 16px */
+}
+
+p {
+    font-size: 1.15rem;
+}
+
+em {
+    font-size: 0.8rem;
+    display: block;
+}
+
+/* ================================
+   5. Links
+   ================================ */
+a, a:visited, a:active {
+    color: #004989;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover, a:focus {
+    text-decoration: underline;
+}
+
+a:not([class]) {
+    color: inherit;
+    text-decoration-skip-ink: auto;
+}
+
+/* ================================
+   6. Headings Links
+   ================================ */
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+    text-decoration: none;
+}
+
+h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
+    text-decoration: underline;
+}
+
+/* ================================
+   7. Lists
+   ================================ */
+ul, ol {
+    display: block;
+    margin: 0 15px 15px 5%;
+}
+
 ul[class], ol[class] {
     list-style: none;
-    margin: 15px 0;
 }
+
 li {
     list-style: disc outside;
-    margin: 0 0 5px 10px;
+    margin: 0 0 0.3125em 10px; /* 5px */
 }
-/* A elements that don't have a class get default styles */
-a:not([class]) {
-    text-decoration-skip-ink: auto;
-    color: inherit;
-}
-/* Make images easier to work with */
+
+/* ================================
+   8. Images
+   ================================ */
 img {
     max-width: 100%;
     display: block;
     margin: auto;
 }
-/* Natural flow and rhythm in articles by default */
+
+/* ================================
+   9. Horizontal Rules
+   ================================ */
+hr {
+    width: 100%;
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+}
+
+/* ================================
+   10. Article Flow
+   ================================ */
 article > * + * {
     margin-top: 1em;
 }
-/* Inherit fonts for inputs and buttons */
+
+/* ================================
+   11. Forms
+   ================================ */
 input, button, textarea, select {
     font: inherit;
-    padding: 5px;
-    border-radius: 5px;
+    padding: 0.3125em 0.625em; /* 5px 10px */
+    border-radius: 0.3125em; /* 5px */
     border: 1px solid #bcbcbc;
+    box-sizing: border-box;
 }
+
 input, select {
     vertical-align: middle;
 }
-input[type="number"], input[type="text"], input[type="password"], input[type="email"], input[type="date"], textarea, select {
+
+input[type="number"],
+input[type="text"],
+input[type="tel"],
+input[type="password"],
+input[type="email"],
+input[type="date"],
+textarea,
+select {
     width: 100%;
 }
-/* Submits and buttons */
-input[type="submit"], button, btn {
-    color: #fff !important;
+
+/* ================================
+   12. Buttons and Submit Inputs
+   ================================ */
+button, 
+input[type="submit"], 
+.btn {
+    color: #fff;
     text-transform: uppercase;
-    text-decoration: none;
-    background: #c70300;
-    padding: 20px;
-    border-radius: 5px;
-    display: inline-block;
+    background-color: #c70300;
+    padding: 0.625em 1.25em; /* 10px 20px */
     border: none;
-    transition: all 0.4s ease 0s;
+    border-radius: 0.3125em; /* 5px */
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.4s ease, letter-spacing 0.4s ease, box-shadow 0.4s ease;
 }
-input[type="submit"]:hover, button:hover, btn:hover {
-    background: #434343;
+
+button:hover, 
+input[type="submit"]:hover, 
+.btn:hover,
+button:focus, 
+input[type="submit"]:focus, 
+.btn:focus {
+    background-color: #434343;
     letter-spacing: 1px;
-    -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
-    -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
-    box-shadow: 5px 40px -10px rgba(0, 0, 0, 0.57);
-    transition: all 0.4s ease 0s;
+    box-shadow: 0 5px 40px rgba(0, 0, 0, 0.57);
+    outline: none; /* Remove default focus outline */
 }
-/* Remove all animations and transitions for people that prefer not to see them */
+
+/* ================================
+   13. Focus Styles for Accessibility
+   ================================ */
+a:focus, 
+button:focus, 
+input:focus, 
+select:focus, 
+textarea:focus {
+    outline: 2px solid #004989;
+    outline-offset: 2px;
+}
+
+/* ================================
+   14. Media Queries
+   ================================ */
+
+/* Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
     * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
+        animation: none !important;
+        transition: none !important;
         scroll-behavior: auto !important;
     }
 }
+
+/* Responsive Figures */
 @media only screen and (max-width: 768px) {
     figure {
-        width: 100% !important;
-        float: none !important;
+        width: 100%;
+        margin: 12px auto;
     }
+}
+
+/* ================================
+   15. Responsive Embed Wrapper
+   ================================ */
+.embedWrapper, 
+.embedwrapper, 
+.videoWrapper, 
+.embedwrap {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+}
+
+.embedWrapper iframe, 
+.embedwrapper iframe, 
+.videoWrapper iframe, 
+.embedwrap iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* ================================
+   16. Utility Classes (Optional)
+   ================================ */
+
+/* Example: Clearfix */
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Example: Visually Hidden */
+.visually-hidden { 
+    position: absolute; 
+    width: 1px; 
+    height: 1px; 
+    padding: 0; 
+    margin: -1px; 
+    overflow: hidden; 
+    clip: rect(0, 0, 0, 0); 
+    white-space: nowrap; 
+    border: 0; 
 }
