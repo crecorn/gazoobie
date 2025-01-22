@@ -1,4 +1,4 @@
-/* GaZoobie 14.01 - Optimized */
+/* GaZoobie 14.02 - Optimized */
 /* Reset CSS with better performance */
 * {
     -webkit-box-sizing: border-box;
@@ -73,6 +73,11 @@
 .eleven { -webkit-flex-basis: 91.666666%; -moz-flex-basis: 91.666666%; flex-basis: 91.666666%; }
 .twelve { -webkit-flex-basis: 100%; -moz-flex-basis: 100%; flex-basis: 100%; }
 
+.column.automargin,
+.columns.automargin {
+    margin: 0 auto;
+}
+
 /* Optimized iframe handling */
 figure iframe {
     max-width: 100%;
@@ -112,10 +117,6 @@ figure iframe {
 }
 
 /* Column Specialty Classes with optimized alignment */
-.column.automargin,
-.columns.automargin {
-    margin: 0 auto;
-}
 
 .column.maxwidth,
 .columns.maxwidth {
@@ -147,13 +148,6 @@ figure iframe {
     -moz-align-items: center;
     align-items: center;
     text-align: center;
-}
-
-/* Row alignment with better specificity */
-.container .rowright {
-    -webkit-justify-content: flex-end;
-    -moz-justify-content: flex-end;
-    justify-content: flex-end;
 }
 
 /* Mobile visibility classes */
@@ -236,12 +230,4 @@ figure iframe {
         max-width: none !important;
     }
 }
-}
 
-/* Print optimization */
-@media print {
-    .container {
-        width: 100% !important;
-        max-width: none !important;
-    }
-}
