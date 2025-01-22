@@ -8,7 +8,7 @@ Every container is centered.
 
 Containers can be nested.
 
-## Example: Images in the left box and text on the right. Auto stacks on mobile.
+**Example: Images in the left box and text on the right. Auto stacks on mobile.**
 
 ```
 <section class="wrap">
