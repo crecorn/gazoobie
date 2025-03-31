@@ -14,12 +14,14 @@ Containers can be nested.
 <section class="wrap">
     <div class="container">
         <div class="five column">
-            <img src="" title="" >
+            <img src="*" title="[[*pagetitle]]" >
         </div>
         <div class="seven column">
-            <h1>Headline</h1>
-            <h2>Take action</h2>
-            <a class="btn" href="[[~11]]" title="Appliance Repair Near Me" >CONTACT TODAY!</a>
+            <h1>[[*pagetitle]]</h1>
+                <div class="content">
+                    [[*content]]
+                </div>          
+            <a class="btn" href="[[~11]]" title="Contact [[++site_name]]" >CONTACT ABOUT [[*menutitle]]!</a>
         </div>
     </div>
 </section>
