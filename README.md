@@ -38,5 +38,6 @@ Containers can be nested.
 
 ## Column
 
+- .card Class to create a basic card with a border, margins, and padding.
 - .centerhrz Content centered on the horizontal center
 - .centervrt Content centered on the vertical center
