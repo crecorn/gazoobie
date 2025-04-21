@@ -1,4 +1,4 @@
-/* GaZoobie 14.02 - Optimized */
+/* GaZoobie 14.5 - Optimized */
 /* Reset CSS with better performance */
 * {
     -webkit-box-sizing: border-box;
@@ -76,6 +76,14 @@
 .column.automargin,
 .columns.automargin {
     margin: 0 auto;
+}
+
+.card {
+    border: solid 1px #dcdcdc;
+    border-radius: 8px;
+    margin: 10px;
+    padding: 10px;
+    flex-basis: content;
 }
 
 /* Optimized iframe handling */
@@ -183,7 +191,6 @@ figure iframe {
     }
 
     .container .column {
-        margin: 0;
         max-width: 100%;
     }
 
