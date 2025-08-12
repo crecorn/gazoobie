@@ -1,136 +1,295 @@
-/* GaZoobie 14.6 - Optimized */
-/* Reset CSS with better performance */
-* {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
+/* GaZoobie 15 – Future-Proof Flex Grid (Gutter-Aware Tokens, Backward Compatible) */
+
+/* ===================== Base Reset ===================== */
+*,
+*::before,
+*::after {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
 }
 
-/* Container Class with GPU acceleration */
+.container,
+.column,
+.columns {
+    box-sizing: inherit;
+}
+
+/* Helps long content not blow out flex items */
+.container>.column,
+.container>.columns {
+    min-width: 0;
+}
+
+/* ===================== Tokens ===================== */
+/* Columns + gap tokens. Change these and the grid adapts. */
+:root {
+    --columns: 12;
+
+    /* Default modern gap and a percent option that mimics old feel */
+    --gap: 16px;
+    /* modern default */
+    --gap-percent: 1%;
+    /* optional percent gutter */
+
+    /* The per-column unit for MODERN gap-supporting browsers is defined inside @supports below */
+}
+
+/* Opt-in percent gutter on any container (non-breaking) */
+.container.gutter-pct {
+    --gap: var(--gap-percent);
+}
+
+/* ===================== Container ===================== */
 .container {
-    width: 100%;
     max-width: 1240px;
     margin: 0 auto;
-    display: -webkit-flex;
-    display: -moz-flex;
     display: flex;
-    -webkit-flex-flow: row wrap;
-    -moz-flex-flow: row wrap;
     flex-flow: row wrap;
-    height: -webkit-fit-content;
-    height: -moz-fit-content;
-    height: fit-content;
-    -webkit-justify-content: center;
-    -moz-justify-content: center;
     justify-content: center;
-    will-change: transform;
-    -webkit-transform: translateZ(0);
-    -moz-transform: translateZ(0);
-    transform: translateZ(0);
+
+    /* legacy behavior kept: a visible gap by default */
+    /* modern gap assigned inside @supports so we can add a fallback for older browsers */
 }
 
-/* Column Classes with optimized flex properties */
-.column, .columns {
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: flex;
-    -webkit-justify-content: flex-start;
-    -moz-justify-content: flex-start;
-    justify-content: flex-start;
-    -webkit-flex-flow: column;
-    -moz-flex-flow: column;
-    flex-flow: column;
-    -webkit-align-items: stretch;
-    -moz-align-items: stretch;
-    align-items: stretch;
-    padding: 0 5px;
-    height: -webkit-fit-content;
-    height: -moz-fit-content;
-    height: fit-content;
-}
-
-.container .column {
-    max-width: 100%;
-    width: 100%;
-    height: auto;
-}
-
-/* Optimized Grid Classes */
-.one { -webkit-flex-basis: 8.333333%; -moz-flex-basis: 8.333333%; flex-basis: 8.333333%; }
-.two { -webkit-flex-basis: 16.666666%; -moz-flex-basis: 16.666666%; flex-basis: 16.666666%; }
-.three, .qrt { -webkit-flex-basis: 25%; -moz-flex-basis: 25%; flex-basis: 25%; }
-.four, .one-third { -webkit-flex-basis: 33.333333%; -moz-flex-basis: 33.333333%; flex-basis: 33.333333%; }
-.five { -webkit-flex-basis: 41.666666%; -moz-flex-basis: 41.666666%; flex-basis: 41.666666%; }
-.six, .half { -webkit-flex-basis: 50%; -moz-flex-basis: 50%; flex-basis: 50%; }
-.seven { -webkit-flex-basis: 58.333333%; -moz-flex-basis: 58.333333%; flex-basis: 58.333333%; }
-.eight { -webkit-flex-basis: 66.666666%; -moz-flex-basis: 66.666666%; flex-basis: 66.666666%; }
-.nine { -webkit-flex-basis: 75%; -moz-flex-basis: 75%; flex-basis: 75%; }
-.ten { -webkit-flex-basis: 83.333333%; -moz-flex-basis: 83.333333%; flex-basis: 83.333333%; }
-.eleven { -webkit-flex-basis: 91.666666%; -moz-flex-basis: 91.666666%; flex-basis: 91.666666%; }
-.twelve { -webkit-flex-basis: 100%; -moz-flex-basis: 100%; flex-basis: 100%; }
-
-.column.automargin,
-.columns.automargin {
-    margin: 0 auto;
-}
-
-.card {
-    border: solid 1px #dcdcdc;
-    border-radius: 8px;
-    margin: 10px;
-    padding: 10px;
-    flex: 1;
-    background: #f2f2f2;
-}
-
-/* Optimized iframe handling */
-figure iframe {
-    max-width: 100%;
-    margin: auto;
-    -webkit-transform: translateZ(0);
-    -moz-transform: translateZ(0);
-    transform: translateZ(0);
-}
-
-/* Form Flex with better specificity */
-.form-row {
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: flex;
-    margin: 12px 0;
-    -webkit-flex-direction: column;
-    -moz-flex-direction: column;
-    flex-direction: column;
-}
-
-/* Container Specialty Classes with better performance */
 .container.fullwidth {
     max-width: 100%;
     padding: 0;
 }
 
 .container.justifyleft {
-    -webkit-justify-content: flex-start;
-    -moz-justify-content: flex-start;
     justify-content: flex-start;
 }
 
 .container.justifyright {
-    -webkit-justify-content: flex-end;
-    -moz-justify-content: flex-end;
     justify-content: flex-end;
 }
 
-/* Column Specialty Classes with optimized alignment */
+/* ===================== Columns ===================== */
+.column,
+.columns {
+    display: flex;
+    flex-flow: column;
+    align-items: stretch;
+    padding: 0;
+}
 
+.container .column,
+.container .columns {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+
+.column.automargin,
+.columns.automargin {
+    margin: 0 auto;
+}
+
+/* ===================== Legacy Span Widths (fallback for very old engines) ===================== */
+/* These are your original fixed flex-basis values. We keep them for true backwards compatibility. */
+.one {
+    -webkit-flex-basis: 7.416667%;
+    -moz-flex-basis: 7.416667%;
+    flex-basis: 7.416667%;
+}
+
+.two {
+    -webkit-flex-basis: 15.833333%;
+    -moz-flex-basis: 15.833333%;
+    flex-basis: 15.833333%;
+}
+
+.three,
+.qrt {
+    -webkit-flex-basis: 24.25%;
+    -moz-flex-basis: 24.25%;
+    flex-basis: 24.25%;
+}
+
+.four,
+.one-third {
+    -webkit-flex-basis: 32.666667%;
+    -moz-flex-basis: 32.666667%;
+    flex-basis: 32.666667%;
+}
+
+.five {
+    -webkit-flex-basis: 41.083333%;
+    -moz-flex-basis: 41.083333%;
+    flex-basis: 41.083333%;
+}
+
+.six,
+.half {
+    -webkit-flex-basis: 49.5%;
+    -moz-flex-basis: 49.5%;
+    flex-basis: 49.5%;
+}
+
+.seven {
+    -webkit-flex-basis: 57.916667%;
+    -moz-flex-basis: 57.916667%;
+    flex-basis: 57.916667%;
+}
+
+.eight {
+    -webkit-flex-basis: 66.333333%;
+    -moz-flex-basis: 66.333333%;
+    flex-basis: 66.333333%;
+}
+
+.nine {
+    -webkit-flex-basis: 74.75%;
+    -moz-flex-basis: 74.75%;
+    flex-basis: 74.75%;
+}
+
+.ten {
+    -webkit-flex-basis: 83.166667%;
+    -moz-flex-basis: 83.166667%;
+    flex-basis: 83.166667%;
+}
+
+.eleven {
+    -webkit-flex-basis: 91.583333%;
+    -moz-flex-basis: 91.583333%;
+    flex-basis: 91.583333%;
+}
+
+.twelve {
+    -webkit-flex-basis: 100%;
+    -moz-flex-basis: 100%;
+    flex-basis: 100%;
+}
+
+/* Map span classes to token n (used by modern calcs). Safe in all browsers; ignored where unused. */
+.one {
+    --n: 1;
+}
+
+.two {
+    --n: 2;
+}
+
+.three,
+.qrt {
+    --n: 3;
+}
+
+.four,
+.one-third {
+    --n: 4;
+}
+
+.five {
+    --n: 5;
+}
+
+.six,
+.half {
+    --n: 6;
+}
+
+.seven {
+    --n: 7;
+}
+
+.eight {
+    --n: 8;
+}
+
+.nine {
+    --n: 9;
+}
+
+.ten {
+    --n: 10;
+}
+
+.eleven {
+    --n: 11;
+}
+
+.twelve {
+    --n: 12;
+}
+
+/* ===================== MODERN: flex gap supported ===================== */
+@supports (gap: 1rem) {
+
+    /* Real flex gap */
+    .container {
+        gap: var(--gap);
+    }
+
+    /* Critical: column width already accounts for the inter-item gaps.
+     No need to add (n-1)*gap to the item itself. */
+    :root {
+        --col: calc((100% - (var(--columns) - 1) * var(--gap)) / var(--columns));
+    }
+
+    /* Override legacy widths using the tokenized, gutter-aware math */
+    .one,
+    .two,
+    .three,
+    .qrt,
+    .four,
+    .one-third,
+    .five,
+    .six,
+    .half,
+    .seven,
+    .eight,
+    .nine,
+    .ten,
+    .eleven,
+    .twelve {
+        flex: 0 0 calc(var(--n) * var(--col));
+        max-width: calc(var(--n) * var(--col));
+    }
+}
+
+/* ===================== FALLBACK: no flex gap support ===================== */
+/* Provide margin/padding gutters; widths use clean n/columns so we don't overflow. */
+@supports not (gap: 1rem) {
+    .container {
+        /* create outside negative margins so inner padding forms gutters without overflow */
+        margin-left: calc(var(--gap) * -0.5);
+        margin-right: calc(var(--gap) * -0.5);
+    }
+
+    .container>.column,
+    .container>.columns {
+        padding-left: calc(var(--gap) * 0.5);
+        padding-right: calc(var(--gap) * 0.5);
+    }
+
+    /* If calc exists, override legacy fixed percentages with token math (still gap-safe) */
+    @supports (width: calc(1% + 1px)) {
+
+        .one,
+        .two,
+        .three,
+        .qrt,
+        .four,
+        .one-third,
+        .five,
+        .six,
+        .half,
+        .seven,
+        .eight,
+        .nine,
+        .ten,
+        .eleven,
+        .twelve {
+            flex: 0 0 calc((100% / var(--columns)) * var(--n));
+            max-width: calc((100% / var(--columns)) * var(--n));
+        }
+    }
+}
+
+/* ===================== Alignment Utilities ===================== */
 .column.maxwidth,
 .columns.maxwidth {
-    -webkit-align-items: stretch;
-    -moz-align-items: stretch;
     align-items: stretch;
 }
 
@@ -138,88 +297,78 @@ figure iframe {
 .columns.center-horizontal,
 .column.centerhrz,
 .columns.centerhrz {
-    -webkit-align-content: center;
-    -moz-align-content: center;
-    align-content: center;
-    -webkit-justify-content: center;
-    -moz-justify-content: center;
-    justify-content: center;
+    align-items: center;
 }
+
+/* cross-axis for column direction */
 
 .column.center-vertical,
 .columns.center-vertical,
 .column.centervrt,
 .columns.centervrt {
-    -webkit-align-content: center;
-    -moz-align-content: center;
-    align-content: center;
-    -webkit-align-items: center;
-    -moz-align-items: center;
-    align-items: center;
+    justify-content: center;
+    /* main axis for column direction */
     text-align: center;
 }
 
-/* Mobile visibility classes */
+.column.center-both,
+.columns.center-both {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* ===================== Cards ===================== */
+.card {
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    margin: 0;
+    padding: 10px;
+    background: #f2f2f2;
+    height: auto;
+}
+
+/* ===================== Media/Embeds ===================== */
+figure iframe {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    margin: auto;
+}
+
+@supports (aspect-ratio: 16 / 9) {
+    figure {
+        aspect-ratio: 16/9;
+    }
+
+    figure iframe {
+        height: 100%;
+    }
+}
+
+/* ===================== Forms ===================== */
+.form-row {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+@media (min-width:576px) {
+    .form-row {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
+
+/* ===================== Visibility (mobile helpers kept) ===================== */
 .mobileshow {
     display: none !important;
     visibility: hidden !important;
 }
 
-/* Optimized Media Queries with logical breakpoints */
-@media only screen and (max-width: 1200px) {
-    .column,
-    .columns {
-        padding: 0 15px;
-    }
-}
-
-@media only screen and (max-width: 992px) {
-    .one, .two, .three, .qrt,
-    .four, .one-third, .five,
-    .six, .half, .seven,
-    .eight, .nine, .ten,
-    .eleven {
-        -webkit-flex-basis: 100%;
-        -moz-flex-basis: 100%;
-        flex-basis: 100%;
-    }
-}
-
-@media only screen and (max-width: 768px) {
-    .column,
-    .columns {
-        padding: 0 12px;
-    }
-
-    .container .column {
-        max-width: 100%;
-    }
-
-    .mobileDouble {
-        -webkit-flex-basis: 50% !important;
-        -moz-flex-basis: 50% !important;
-        flex-basis: 50% !important;
-        -webkit-flex-flow: wrap;
-        -moz-flex-flow: wrap;
-        flex-flow: wrap;
-    }
-
-    .mobileTriple {
-        -webkit-flex-basis: 33.333% !important;
-        -moz-flex-basis: 33.333% !important;
-        flex-basis: 33.333% !important;
-        -webkit-flex-flow: wrap;
-        -moz-flex-flow: wrap;
-        flex-flow: wrap;
-    }
-
-    .mobileclear,
-    .mobilebreak {
-        clear: both;
-        display: block;
-        overflow: hidden;
-    }
-
+@media (max-width:768px) {
     .mobilehide {
         display: none !important;
         visibility: hidden !important;
@@ -229,13 +378,125 @@ figure iframe {
         display: block !important;
         visibility: visible !important;
     }
+
+    /* New aliases (non-breaking additions) */
+    .sm-hide {
+        display: none !important;
+    }
+
+    .sm-show {
+        display: block !important;
+    }
 }
 
-/* Print optimization */
+/* ===================== Responsive Breakpoints ===================== */
+@media (max-width:1200px) {
+    /* Only add padding if we DON'T have modern gap, to avoid double gutters */
+    @supports not (gap: 1rem) {
+
+        .column,
+        .columns {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+    }
+}
+
+@media (max-width:992px) {
+
+    .one,
+    .two,
+    .three,
+    .qrt,
+    .four,
+    .one-third,
+    .five,
+    .six,
+    .half,
+    .seven,
+    .eight,
+    .nine,
+    .ten,
+    .eleven {
+        -webkit-flex-basis: 100%;
+        -moz-flex-basis: 100%;
+        flex-basis: 100%;
+        max-width: 100%;
+    }
+}
+
+@media (max-width:768px) {
+    @supports not (gap: 1rem) {
+
+        .column,
+        .columns {
+            padding-left: 12px;
+            padding-right: 12px;
+        }
+    }
+
+    .mobileDouble,
+    .mobiledouble,
+    .sm-half {
+        -webkit-flex-basis: 50% !important;
+        -moz-flex-basis: 50% !important;
+        flex: 0 0 50% !important;
+        max-width: 50% !important;
+        flex-flow: wrap;
+    }
+
+    .mobileTriple,
+    .mobiletriple,
+    .sm-third {
+        -webkit-flex-basis: 33.333% !important;
+        -moz-flex-basis: 33.333% !important;
+        flex: 0 0 33.333% !important;
+        max-width: 33.333% !important;
+        flex-flow: wrap;
+    }
+
+    .mobileclear,
+    .mobilebreak {
+        clear: both;
+        display: block;
+        overflow: hidden;
+    }
+}
+
+/* ===================== Print ===================== */
 @media print {
     .container {
         width: 100% !important;
         max-width: none !important;
     }
+
+    .card {
+        background: #fff;
+        border-color: #ccc;
+    }
+
+    .mobilehide,
+    .mobileshow {
+        display: block !important;
+        visibility: visible !important;
+    }
+
+    img,
+    iframe {
+        max-width: 100%;
+        page-break-inside: avoid;
+    }
 }
 
+/* ===================== Accessibility ===================== */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+    }
+}
+
+:root {
+    color-scheme: light dark;
+}
